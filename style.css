@@ -1,0 +1,371 @@
+@import url(`https://fonts.googleapis.com/css2?family=Pacifico&display=swap`);
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #F3F4F6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Pacifico", cursive;
+    margin: 0;
+    padding: 20px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+
+/* the big heading */
+h1{
+    color: blue;
+    font-weight: bold;
+    margin-bottom: -10px;
+    font-size: 2.3rem;
+    text-align: center;
+}
+
+#underh1 {
+    text-align: center;
+    color: #434343;
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+/* the segments */
+ul{
+    list-style-type: none;
+    display: flex;
+    gap: 10px;
+    margin-left: -32px;
+    margin-bottom: 25px;
+}
+
+li:nth-child(1){
+    background-color: rgba(100, 148, 237, 0.605);
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 14px;
+    color: blue;
+}
+
+li:nth-child(2){
+    background-color: aquamarine;
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 14px;
+    color: rgb(1, 123, 1);
+}
+
+li:nth-child(3){
+    background-color: rgba(147, 112, 216, 0.546);
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 14px;
+    color: blueviolet;
+}
+
+li:nth-child(4){
+    background-color: khaki;
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 14px;
+    color: rgb(140, 119, 2);
+}
+
+/* the tasks types */
+#progress{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    gap: 5px;
+}
+
+#total, #complet, #pending{
+    width: 100%;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 8px;
+    flex: 1;
+    min-width: 355px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+#total:hover, #complet:hover, #pending:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+#total i, #complet i, #pending i{
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+#total i{
+    background-color: rgba(100, 148, 237, 0.605);
+    color: blue;
+}
+
+#complet i{
+    background-color: rgba(7, 197, 7, 0.799);
+    color: green;
+}
+
+#pending i{
+    background-color: rgba(247, 75, 75, 0.605);
+    color: red;
+}
+
+.title {
+    margin-bottom: -15px;
+}
+
+/* task creater */
+#addtask{
+    background-color: white;
+    width: 100%;
+    padding: 5px 20px 20px 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 13px;
+    margin-bottom: 13px;
+}
+
+#addtask h3{
+    font-weight: bold;
+    margin-bottom: -5px;
+}
+
+#addtask p{
+    margin-bottom: -7px;
+}
+
+#addtask input, #addtask select{
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid rgba(70, 68, 68, 0.546);
+    font-size: 1rem;
+}
+
+#addtask button{
+    margin-top: 10px;
+    cursor: pointer;
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgb(100, 148, 237);
+    color: aliceblue;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 2px solid blue;
+    box-shadow: 0px 0px 5px 1px rgba(5, 6, 203, 0.58);
+    transition: all 0.2s ease;
+}
+
+#addtask button:hover {
+    background-color: rgba(100, 148, 237, 0.795);
+    transform: translateY(-2px);
+    box-shadow: 0px 0px 5px 1px rgba(5, 6, 203, 0.58);
+}
+
+#tasks{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#tasks h3{
+    margin-right: auto;
+}
+
+#choices select{
+    padding: 8px;
+    border-radius: 10px;
+    margin-right: 5px;
+}
+
+/* new task register */
+
+#showtasks{
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+    margin-top: 13px;
+    margin-bottom: 13px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex: 2;
+    color: #585757;
+    max-height: 248px;
+    scrollbar-width: thin;
+    scrollbar-color: #84AAF1 white;
+    scrollbar-gutter: stable;
+    overflow-y: auto;
+}
+/* the form of the new task */
+#task{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    margin-bottom: 8px;
+    position: relative;
+    border-radius: 10px;
+    /* background-color: #5857573f; */
+
+}
+
+#task::after{
+    content: '';
+    width: 85%;
+    height: 2px;
+    position: absolute;
+    left: 7.5%;
+    background-color: #5857573f;
+    margin: 80px 7.5% -10px 0;
+    border-radius: 50%;
+}
+
+.didit{
+    width: 20px;
+    height: 20px;
+}
+
+#idk1{
+    margin-right: auto;
+}
+
+#idk1 h4{
+    color: black;
+    margin-bottom: -10px;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+#idk1 p{
+    font-size: 12px;
+}
+
+#idk2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: black;
+    margin-top: -4px;
+}
+
+.low{
+    background-color: rgba(7, 197, 7, 0.493);
+    color: green;
+    border-radius: 10px;
+    padding: 8px;
+    font-size: 10px;   
+}
+
+.medium{
+    background-color: rgba(233, 238, 99, 0.479);
+    color: rgba(108, 101, 4, 0.683);
+    border-radius: 10px;
+    padding: 8px;
+    font-size: 10px;   
+}
+
+.high{
+    background-color: rgba(247, 75, 75, 0.605);
+    color: red;
+    border-radius: 10px;
+    padding: 8px;
+    font-size: 10px;   
+}
+
+#subj{
+    background-color: rgba(100, 148, 237, 0.605);
+    color: blue;
+    border-radius: 10px;
+    padding: 8px;
+    font-size: 10px;
+}
+
+#idk2 i{
+    transition: all 0.3s ease-in-out;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#idk2 i:hover{
+    color: red;
+    transform: translateY(-4px);
+}
+/* end of form of the new task */
+
+
+/* Quotes */
+.quote{
+    width: 100%;
+    color: #585757;
+    text-align: center;
+    padding: 15px;
+}
+
+.quote blockquote{
+    font-size: 20px;
+}
+
+.quote blockquote::before, .quote blockquote::after{
+    content: ' " ';
+}
+
+.quote span{
+    display: block;
+    margin-top: -12px;
+    float: right;
+}
+
+
+
+
+
+@media screen and (min-width:765px){
+    #total, #complet, #pending{
+        min-width: 180px;
+    }
+
+    h1{
+        font-size: 1.5rem;
+    }
+}

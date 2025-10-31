@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <form>
+        <!-- the big heading -->
+        <h1>Student Task Manager</h1>
+        <p id="underh1">Organize your academic life one task at a time</p>
+        <!-- the segments -->
+        <ul>
+            <li>Assignments</li>
+            <li>Exams</li>
+            <li>Projects</li>
+            <li>Readings</li>
+        </ul>
+        <!--  the tasks types  -->
+        <div id="progress">
+            <div id="total">
+                <i class="fa-solid fa-list-check"></i>
+                <div class="contant">
+                    <h5 class="title">Total Tasks</h5>
+                    <p id="countTotal">0</p>
+                </div>
+            </div>
+            <div id="complet">
+                <i class="fa-solid fa-check"></i>
+                <div class="contant">
+                    <h5 class="title">Completed</h5>
+                    <p id="countCompleted">0</p>
+                </div>
+            </div>
+            <div id="pending">
+                <i class="fa-solid fa-spinner"></i>
+                <div class="contant">
+                    <h5 class="title">Pending</h5>
+                    <p id="countPending">0</p>
+                </div>
+            </div>
+        </div>
+        <!-- task creater -->
+        <div id="addtask">
+            <h3>Add New Task</h3>
+            <p>Task Description</p>
+            <input type="text" placeholder="What do you need to do?" id="description">
+            <p>Due Date</p>
+            <input type="date" id="duedate">
+            <p>Priority</p>
+            <select name="priority" id="priority">
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select>
+            <p>Subject/Course</p>
+            <input type="text" placeholder="e.g. Math, Biology, History..." id="subject">
+            <button id="addbtn">
+                <i class="fa-solid fa-circle-plus"></i>
+                Add Task
+            </button>
+        </div>
+        <!-- task filter -->
+        <div id="tasks">
+          <h3>Your Tasks</h3>
+          <div id="choices">
+            <select id="priorityFilter">
+                <option>All Priorities</option>
+                <option>Low</option>
+                <option>Medium</option>
+                <option>High</option>
+            </select>
+            <select id="statusFilter">
+              <option>All Tasks</option>
+              <option>Completed</option>
+              <option>Pending</option>
+            </select>
+          </div>
+        </div>
+        <!-- new task register -->
+        <div id="showtasks">
+            <h3>No tasks match your filters</h3>
+            <div id="task" style="display: none;">
+                <input type="checkbox" id="didit">
+                <div id="idk1">
+                    <h4>task description</h4>
+                    <p><i class="fa-solid fa-calendar-days"></i> 21/03/2026 <i class="fa-regular fa-clock"></i> Due on 21/03/2026</p>
+                </div>
+
+                <div id="idk2">
+                    <h6 class="high medium low">priotype</h6>
+                    <h6 id="subj">subject</h6>
+                    <i class="fa-solid fa-trash"></i>
+                </div>
+            </div>
+        </div>
+        <!-- Quotes -->
+        <div class="quote">
+            <blockquote id="quotecontent">Loading...</blockquote>
+            <span id="quoteauthor">Loading...</span>
+        </div>
+    </form>
+<script src="./index.js"></script>
+</body>
+</html>
