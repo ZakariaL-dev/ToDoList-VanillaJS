@@ -32,6 +32,7 @@ addbtn.addEventListener("click", function (e) {
   saveTasks();
   clearinps();
   CounterTasks();
+  checkTaskCount();
 });
 
 function clearinps() {
@@ -68,7 +69,7 @@ function addtask(tsk) {
 function TaskStructure(tsk) {
   // task div
   let newtask = document.createElement("div");
-  newtask.id = "task";
+  newtask.classList.add("task");
 
   let checkinp = document.createElement("input");
   checkinp.type = "checkbox";
@@ -181,6 +182,7 @@ function TaskStructure(tsk) {
   });
 
   CounterTasks();
+  checkTaskCount();
 
   //showtask
   return showtasks.prepend(newtask);
@@ -231,6 +233,8 @@ function applyFilters() {
     }
     // If statusValue === "All Tasks", statusMatch stays true
 
+    checkTaskCount();
+
     // Task must match both filters
     return priorityMatch && statusMatch;
   });
@@ -246,6 +250,20 @@ function applyFilters() {
     }
   }
 }
+
+// border for multiple tasks
+function checkTaskCount() {
+  const showtasks = document.getElementById("showtasks");
+  // Count only divs with the class "task" (we will change the ID to a class next)
+  const taskElements = showtasks.querySelectorAll(".task");
+
+  if (taskElements.length > 1) {
+    showtasks.classList.add("has-multiple");
+  } else {
+    showtasks.classList.remove("has-multiple");
+  }
+}
+
 // Add event listeners that call the combined function
 PriorityFilter.addEventListener("change", applyFilters);
 StatusFilter.addEventListener("change", applyFilters);
