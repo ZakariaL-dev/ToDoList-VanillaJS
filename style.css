@@ -13,8 +13,8 @@ body {
 
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding: 0 50px;
+  grid-template-columns: 1fr; 
+  gap: 30px;
 }
 
 form {
@@ -23,7 +23,6 @@ form {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  max-width: 600px;
   width: 100%;
 }
 
@@ -383,7 +382,7 @@ footer {
   font-size: 14px;
 }
 
-@media screen and (min-width: 765px) {
+@media screen and (min-width: 900px) {
   #total,
   #complet,
   #pending {
@@ -392,5 +391,10 @@ footer {
 
   h1 {
     font-size: 1.5rem;
+  }
+  
+  .container {
+    grid-template-columns: 1fr 1fr;
+    padding: 0 50px;
   }
 }
