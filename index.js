@@ -22,6 +22,11 @@ addbtn.addEventListener("click", function (e) {
     completed: false,
   };
 
+  if (!task.description || !task.duedate || !task.priority || !task.subject) {
+    alert("Please fill in all fields before adding a task.");
+    return;
+  }
+
   tasks.unshift(task);
   addtask(task);
   saveTasks();
@@ -56,7 +61,7 @@ function addtask(tsk) {
     showtasks.innerHTML = "";
     firsttime = false;
   }
-  
+
   TaskStructure(tsk);
 }
 
@@ -174,7 +179,7 @@ function TaskStructure(tsk) {
     applyCompletedStyle(checkinp.checked);
     applyFilters();
   });
-  
+
   CounterTasks();
 
   //showtask
@@ -209,14 +214,14 @@ const StatusFilter = document.getElementById("statusFilter");
 function applyFilters() {
   const priorityValue = PriorityFilter.value;
   const statusValue = StatusFilter.value;
-  
+
   const filteredTasks = tasks.filter((task) => {
     // Check priority filter
     let priorityMatch = true;
     if (priorityValue !== "All Priorities") {
       priorityMatch = task.priority === priorityValue;
     }
-    
+
     // Check status filter
     let statusMatch = true;
     if (statusValue === "Completed") {
@@ -225,11 +230,11 @@ function applyFilters() {
       statusMatch = !task.completed;
     }
     // If statusValue === "All Tasks", statusMatch stays true
-    
+
     // Task must match both filters
     return priorityMatch && statusMatch;
   });
-  
+
   // Display results
   if (filteredTasks.length === 0) {
     showtasks.innerHTML = "<h3>No tasks match your filters</h3>";
@@ -244,9 +249,6 @@ function applyFilters() {
 // Add event listeners that call the combined function
 PriorityFilter.addEventListener("change", applyFilters);
 StatusFilter.addEventListener("change", applyFilters);
-
-
-
 
 // random quote generator
 const quotecontent = document.getElementById("quotecontent");
